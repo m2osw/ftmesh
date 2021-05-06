@@ -1,0 +1,4 @@
+*.sw?
+tmp
+doc/mesh.jpg
+doc/ftmesh-logo.xcf
