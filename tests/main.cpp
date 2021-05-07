@@ -1,6 +1,6 @@
-// Copyright (c) 2006-2021  Made to Order Software Corp.  All Rights Reserved
+// Copyright (c) 2021  Made to Order Software Corp.  All Rights Reserved
 //
-// https://snapwebsites.org/project/cppthread
+// https://snapwebsites.org/project/ftmesh
 // contact@m2osw.com
 //
 // This program is free software; you can redistribute it and/or modify
@@ -27,17 +27,13 @@
 
 // cppthread lib
 //
-#include "cppthread/version.h"
+#include "ftmesh/version.h"
 
 
 // libexcept lib
 //
-#include "libexcept/exception.h"
+#include <libexcept/exception.h>
 
-
-// C++ lib
-//
-#include <sstream>
 
 
 
@@ -46,8 +42,8 @@
 int main(int argc, char * argv[])
 {
     return SNAP_CATCH2_NAMESPACE::snap_catch2_main(
-              "cppthread"
-            , CPPTHREAD_VERSION_STRING
+              "ftmesh"
+            , FTMESH_VERSION_STRING
             , argc
             , argv
             , []() { libexcept::set_collect_stack(false); }
