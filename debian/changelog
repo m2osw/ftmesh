@@ -1,3 +1,9 @@
+ftmesh (1.0.1.3~bionic) bionic; urgency=high
+
+  * Added missing libadvgetopt as a dependency (leaking by snaplogger)...
+
+ -- Alexis Wilke <alexis@m2osw.com>  Thu, 06 May 2021 20:50:20 -0700
+
 ftmesh (1.0.1.2~bionic) bionic; urgency=high
 
   * Missed the -dev on snaplogger-dev.
