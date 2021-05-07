@@ -1,3 +1,12 @@
+ftmesh (1.0.1.0~bionic) bionic; urgency=high
+
+  * Re-added the tests, it was not properly checked in.
+  * Re-added the necessary dependencies so it links as expected.
+  * Added a coverage script to run coverage tests.
+  * Fixed the .cmake file (it was still the CPPTHREAD version).
+
+ -- Alexis Wilke <alexis@m2osw.com>  Thu, 06 May 2021 20:07:53 -0700
+
 ftmesh (1.0.0.1~bionic) bionic; urgency=high
 
   * Retry with freetype as a build dependency.

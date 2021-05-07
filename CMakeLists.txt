@@ -22,8 +22,12 @@ project(ftmesh_library)
 
 find_package(SnapCMakeModules REQUIRED)
 find_package(Freetype         REQUIRED)
+find_package(GLUT             REQUIRED)
 find_package(LibExcept        REQUIRED)
+find_package(LibUtf8          REQUIRED)
+find_package(OpenGL           REQUIRED)
 find_package(SnapDev          REQUIRED)
+find_package(SnapLogger       REQUIRED)
 find_package(SnapDoxygen              )
 
 SnapGetVersion(FTMESH ${CMAKE_CURRENT_SOURCE_DIR})
@@ -34,8 +38,8 @@ include_directories(
 )
 
 add_subdirectory(ftmesh    )
-#add_subdirectory(tests     )
+add_subdirectory(tests     )
 add_subdirectory(doc       )
-#add_subdirectory(cmake     )
+add_subdirectory(cmake     )
 
 # vim: ts=4 sw=4 et

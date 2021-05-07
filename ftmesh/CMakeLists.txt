@@ -31,6 +31,10 @@ configure_file(
 include_directories(
     ${LIBEXCEPT_INCLUDE_DIRS}
     ${FREETYPE_INCLUDE_DIRS}
+    ${OPENGL_INCLUDE_DIRS}
+    ${GLUT_INCLUDE_DIRS}
+    ${SNAPLOGGER_INCLUDE_DIRS}
+    ${LIBUTF8_INCLUDE_DIRS}
 )
 
 add_library(${PROJECT_NAME} SHARED
@@ -45,6 +49,10 @@ add_library(${PROJECT_NAME} SHARED
 target_link_libraries(${PROJECT_NAME}
     ${LIBEXCEPT_LIBRARIES}
     ${FREETYPE_LIBRARIES}
+    ${OPENGL_LIBRARIES}
+    ${GLUT_LIBRARY}
+    ${SNAPLOGGER_LIBRARIES}
+    ${LIBUTF8_LIBRARIES}
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES

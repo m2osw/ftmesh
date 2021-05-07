@@ -1,12 +1,12 @@
 # The following variables are defined with the C++ Thread library parameters:
 #
-# CPPTHREAD_FOUND        - System has CppThread
-# CPPTHREAD_INCLUDE_DIRS - The CppThread include directories
-# CPPTHREAD_LIBRARIES    - The libraries needed to use CppThread (none)
-# CPPTHREAD_DEFINITIONS  - Compiler switches required for using CppThread (none)
+# FTMESH_FOUND        - System has CppThread
+# FTMESH_INCLUDE_DIRS - The CppThread include directories
+# FTMESH_LIBRARIES    - The libraries needed to use CppThread (none)
+# FTMESH_DEFINITIONS  - Compiler switches required for using CppThread (none)
 #
 # License:
-#   Copyright (c) 2013-2021  Made to Order Software Corp.  All Rights Reserved
+#   Copyright (c) 2021  Made to Order Software Corp.  All Rights Reserved
 #
 #   https://snapwebsites.org/
 #   contact@m2osw.com
@@ -28,37 +28,38 @@
 
 find_path(
     CPPTHREAD_INCLUDE_DIR
-        cppthread/thread.h
+        ftmesh/mesh.h
 
     PATHS
-        $ENV{CPPTHREAD_INCLUDE_DIR}
+        $ENV{FTMESH_INCLUDE_DIR}
 )
 
 find_library(
     CPPTHREAD_LIBRARY
-        cppthread
+        ftmesh
 
     PATHS
-        $ENV{CPPTHREAD_LIBRARY}
+        $ENV{FTMESH_LIBRARY}
 )
 
 mark_as_advanced(
-    CPPTHREAD_INCLUDE_DIR
-    CPPTHREAD_LIBRARY
+    FTMESH_INCLUDE_DIR
+    FTMESH_LIBRARY
 )
 
-set(CPPTHREAD_INCLUDE_DIRS ${CPPTHREAD_INCLUDE_DIR})
-set(CPPTHREAD_LIBRARIES    ${CPPTHREAD_LIBRARY}    )
+set(FTMESH_INCLUDE_DIRS ${FTMESH_INCLUDE_DIR})
+set(FTMESH_LIBRARIES    ${FTMESH_LIBRARY}    )
 
-include( FindPackageHandleStandardArgs )
 
 # handle the QUIETLY and REQUIRED arguments and set CPPTHREAD_FOUND to TRUE
 # if all listed variables are TRUE
+#
+include(FindPackageHandleStandardArgs)
 find_package_handle_standard_args(
-    CppThread
+    FtMesh
     DEFAULT_MSG
-    CPPTHREAD_INCLUDE_DIR
-    CPPTHREAD_LIBRARY
+    FTMESH_INCLUDE_DIR
+    FTMESH_LIBRARY
 )
 
 # vim: ts=4 sw=4 et
