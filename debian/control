@@ -7,6 +7,7 @@ Build-Depends: cmake,
     graphviz,
     libboost-dev,
     libexcept-dev (>= 1.1.4.0~bionic),
+    libfreetype6-dev,
     snapcatch2 (>= 2.9.1.0~bionic),
     snapcmakemodules (>= 1.0.49.0~bionic),
     snapdev (>= 1.1.3.0~bionic)
