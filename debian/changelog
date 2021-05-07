@@ -1,4 +1,4 @@
-ftmesh (1.0.1.1-bionic) bionic; urgency=high
+ftmesh (1.0.1.1~bionic) bionic; urgency=high
 
   * Added the OpenGL & glut packages as a build dependencies.
   * Added the libutf8-dev & snaplogger-dev packages as a build dependencies.
