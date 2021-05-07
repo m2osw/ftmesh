@@ -1,3 +1,9 @@
+ftmesh (1.0.1.2~bionic) bionic; urgency=high
+
+  * Missed the -dev on snaplogger-dev.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Thu, 06 May 2021 20:31:21 -0700
+
 ftmesh (1.0.1.1~bionic) bionic; urgency=high
 
   * Added the OpenGL & glut packages as a build dependencies.
