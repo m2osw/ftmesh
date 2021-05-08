@@ -1,3 +1,9 @@
+ftmesh (1.0.3.0~bionic) bionic; urgency=high
+
+  * Changed the output of convert_string() to a pointer.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Sat, 08 May 2021 13:46:02 -0700
+
 ftmesh (1.0.2.1~bionic) bionic; urgency=high
 
   * Testing without libglvnd-dev, which doesn't work on xenial.

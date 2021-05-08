@@ -571,9 +571,9 @@ mesh::pointer_t font::get_mesh(char32_t glyph)
 }
 
 
-mesh_string font::convert_string(std::string const & message)
+mesh_string::pointer_t font::convert_string(std::string const & message)
 {
-    mesh_string result;
+    mesh_string::pointer_t result(std::make_shared<mesh_string>());
 
     std::u32string const s(libutf8::to_u32string(message));
     std::size_t const size(s.size());
@@ -584,7 +584,7 @@ mesh_string font::convert_string(std::string const & message)
         {
             char32_t const next_char(i + 1 < size ? s[i + 1] : U'\U00000000');
             int const advance(f_impl->get_kerning(s[i], next_char));
-            result.add_glyph(m, advance);
+            result->add_glyph(m, advance);
         }
     }
 

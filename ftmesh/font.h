@@ -58,7 +58,7 @@ public:
     void                    set_size(int point, int x_resolution, int y_resolution);
 
     mesh::pointer_t         get_mesh(char32_t glyph);
-    mesh_string             convert_string(std::string const & message);
+    mesh_string::pointer_t  convert_string(std::string const & message);
 
 private:
     mesh::map_t             f_map = mesh::map_t();

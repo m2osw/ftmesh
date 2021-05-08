@@ -119,7 +119,8 @@ struct point
     }
 
     // WARNING: we use an array of GLdouble so we are 100% compatible with
-    //          the GLU tesselation which requires those are vertices
+    //          the GLU tesselation which requires those are vertices; we
+    //          verify that GLdouble is double (see )
     //
     double      f_coordinates[3] = {};
 };
