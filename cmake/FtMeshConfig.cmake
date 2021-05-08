@@ -1,9 +1,9 @@
-# The following variables are defined with the C++ Thread library parameters:
+# The following variables are defined with the FtMesh library parameters:
 #
-# FTMESH_FOUND        - System has CppThread
-# FTMESH_INCLUDE_DIRS - The CppThread include directories
-# FTMESH_LIBRARIES    - The libraries needed to use CppThread (none)
-# FTMESH_DEFINITIONS  - Compiler switches required for using CppThread (none)
+# FTMESH_FOUND        - System has FtMesh
+# FTMESH_INCLUDE_DIRS - The FtMesh include directories
+# FTMESH_LIBRARIES    - The libraries needed to use FtMesh (none)
+# FTMESH_DEFINITIONS  - Compiler switches required for using FtMesh (none)
 #
 # License:
 #   Copyright (c) 2021  Made to Order Software Corp.  All Rights Reserved
@@ -27,7 +27,7 @@
 #
 
 find_path(
-    CPPTHREAD_INCLUDE_DIR
+    FTMESH_INCLUDE_DIR
         ftmesh/mesh.h
 
     PATHS
@@ -35,7 +35,7 @@ find_path(
 )
 
 find_library(
-    CPPTHREAD_LIBRARY
+    FTMESH_LIBRARY
         ftmesh
 
     PATHS
@@ -51,7 +51,7 @@ set(FTMESH_INCLUDE_DIRS ${FTMESH_INCLUDE_DIR})
 set(FTMESH_LIBRARIES    ${FTMESH_LIBRARY}    )
 
 
-# handle the QUIETLY and REQUIRED arguments and set CPPTHREAD_FOUND to TRUE
+# handle the QUIETLY and REQUIRED arguments and set FTMESH_FOUND to TRUE
 # if all listed variables are TRUE
 #
 include(FindPackageHandleStandardArgs)
