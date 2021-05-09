@@ -52,6 +52,12 @@ namespace ftmesh
 
 
 
+mesh::mesh(int advance)
+    : f_advance(advance)
+{
+}
+
+
 void mesh::begin()
 {
     f_indexes.push_back(f_points.size());
@@ -86,6 +92,12 @@ mesh::index_vector_t const & mesh::get_indexes() const
 //{
 //    return f_types;
 //}
+
+
+int mesh::get_advance() const
+{
+    return f_advance;
+}
 
 
 } // namespace ftmesh

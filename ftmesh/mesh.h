@@ -51,6 +51,8 @@ public:
     typedef std::vector<int>                index_vector_t;
     //typedef std::vector<GLenum>             type_vector_t;
 
+                                mesh(int advance);
+
     void                        begin();
     void                        add_point(point const & point);
     void                        end();
@@ -58,11 +60,13 @@ public:
     point::vector_t const &     get_points() const;
     index_vector_t const &      get_indexes() const;
     //type_vector_t const &       get_types() const;
+    int                         get_advance() const;
 
 private:
     point::vector_t             f_points = point::vector_t();
     index_vector_t              f_indexes = index_vector_t();
     //type_vector_t               f_type = type_vector_t();
+    int                         f_advance = 0;
 };
 
 

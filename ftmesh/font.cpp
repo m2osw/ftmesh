@@ -251,7 +251,7 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
 
     // compute the parity of each polygon
     //
-    // FIXME: see if FT_Outline_Get_Orientation can do it for us.
+    // FIXME: see whether FT_Outline_Get_Orientation can do it for us.
     //
     for(std::size_t i(0); i < polygons.size(); ++i)
     {
@@ -298,7 +298,7 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
         c1->apply_parity(parity);
     }
 
-    f_current_mesh = std::make_shared<mesh>();
+    f_current_mesh = std::make_shared<mesh>(f_face->glyph->advance.x / f_precision);
     f_temporary_vertex_pos = 0;
 
     GLUtesselator * tobj(gluNewTess());
@@ -612,7 +612,7 @@ mesh_string::pointer_t font::convert_string(std::string const & message)
         {
             char32_t const next_char(i + 1 < size ? s[i + 1] : U'\U00000000');
             int const advance(f_impl->get_kerning(s[i], next_char));
-            result->add_glyph(m, advance);
+            result->add_glyph(m, m->get_advance() + advance);
         }
     }
 

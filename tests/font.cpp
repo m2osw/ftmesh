@@ -68,8 +68,10 @@ CATCH_TEST_CASE("font", "[font]")
                 {
 std::cerr << " (" << p[start + k].x() << ", " << p[start + k].y() << ")";
                 }
-//std::cerr << "\n";
+std::cerr << "\n";
             }
+            int advance(c->get_advance());
+std::cerr << "advance by " << advance << " to next glyph\n";
         }
     }
     CATCH_END_SECTION()
