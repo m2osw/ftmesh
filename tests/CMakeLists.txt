@@ -40,6 +40,7 @@ if(Catch2_FOUND)
     add_executable(${PROJECT_NAME}
         main.cpp
 
+        font.cpp
         point.cpp
         version.cpp
     )

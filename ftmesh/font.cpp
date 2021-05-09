@@ -61,6 +61,11 @@
 #include    FT_OUTLINE_H
 
 
+// C++ lib
+//
+#include    <iostream>
+
+
 // last include
 //
 #include    <snapdev/poison.h>
@@ -172,13 +177,31 @@ private:
 font_impl::font_impl(std::string const & font)
     : f_filename(font)
 {
-    FT_New_Face(
+    FT_Error e(FT_New_Face(
               g_ft_library
             , f_filename.c_str()
             , DEFAULT_FACE_INDEX
-            , &f_face);
+            , &f_face));
+    if(e != FT_Err_Ok)
+    {
+        throw std::runtime_error(
+                  "FT_New_Face() could not load \""
+                + f_filename
+                + "\" (FT_Error: "
+                + std::to_string(e)
+                + ")");
+    }
 
-    FT_Select_Charmap(f_face, FT_ENCODING_UNICODE);
+    e = FT_Select_Charmap(f_face, FT_ENCODING_UNICODE);
+    if(e != FT_Err_Ok)
+    {
+        throw std::runtime_error(
+                  "FT_New_Face() could not set Unicode Charmap for \""
+                + f_filename
+                + "\" (FT_Error: "
+                + std::to_string(e)
+                + ")");
+    }
 
     // make sure to define a default size which is always the same
     //
@@ -196,7 +219,7 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
 {
     FT_UInt const index(FT_Get_Char_Index(f_face, glyph));
     int const e(FT_Load_Glyph(f_face, index, FT_LOAD_DEFAULT));
-    if(e != 0
+    if(e != FT_Err_Ok
     || f_face->glyph == nullptr)     // the load failed
     {
         return mesh::pointer_t();
@@ -312,7 +335,7 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
                     gluTessVertex(
                           tobj
                         , const_cast<double *>(polygon->at(p).f_coordinates)
-                        , this);
+                        , const_cast<double *>(polygon->at(p).f_coordinates));
                 }
 
             gluTessEndContour(tobj);
@@ -330,6 +353,11 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
 
 void font_impl::set_precision(int precision)
 {
+    if(precision <= 0)
+    {
+        throw std::runtime_error("the precision must be positive");
+    }
+
     f_precision = precision;
 
     // TBD: should we call the set_size() funciton? if we want to be able to
@@ -376,7 +404,7 @@ void font_impl::set_size(int point_size, int x_resolution, int y_resolution)
             , point_size * f_precision
             , x_resolution
             , y_resolution));
-    if(e != 0)
+    if(e != FT_Err_Ok)
     {
         SNAP_LOG_ERROR
             << "FT_Set_Char_Size() failed with error #"
@@ -406,7 +434,7 @@ int font_impl::get_kerning(char32_t current_char, char32_t next_char)
                 , next_index
                 , FT_KERNING_UNFITTED
                 , &kern_advance));
-        if(e != 0)
+        if(e != FT_Err_Ok)
         {
             // this is probably common?
         }
@@ -494,7 +522,7 @@ void font_impl::callback_end()
 
 void font_impl::callback_vertex(point const & p)
 {
-    f_current_mesh->add_point(p);
+    f_current_mesh->add_point(point(p.x() / f_precision, p.y() / f_precision));
 }
 
 

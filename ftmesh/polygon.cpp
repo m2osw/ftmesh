@@ -35,6 +35,7 @@
 // C++ lib
 //
 #include    <algorithm>
+#include    <iostream>
 
 
 // last include
@@ -55,7 +56,10 @@ constexpr unsigned int const        BEZIER_STEPS = 5;
 
 
 
-polygon::polygon(FT_Vector * contour, char * tags, unsigned int n)
+polygon::polygon(
+          FT_Vector * contour
+        , char * tags
+        , unsigned int n)
 {
     if(n < 3)
     {

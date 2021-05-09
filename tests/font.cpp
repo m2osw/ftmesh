@@ -24,7 +24,7 @@
 
 // ftmesh lib
 //
-#include    <ftmesh/point.h>
+#include    <ftmesh/font.h>
 
 
 // snapdev lib
@@ -42,27 +42,35 @@
 #pragma GCC diagnostic ignored "-Wfloat-equal"
 
 
-CATCH_TEST_CASE("point", "[point]")
+CATCH_TEST_CASE("font", "[font]")
 {
-    CATCH_START_SECTION("Verify constructors and copy")
+    CATCH_START_SECTION("Make sure font works")
     {
-        ftmesh::point a;
+        ftmesh::font f("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf");
+        f.set_size(78, 72, 72);
 
-        CATCH_REQUIRE(a.f_coordinates[0] == 0.0);
-        CATCH_REQUIRE(a.f_coordinates[1] == 0.0);
-        CATCH_REQUIRE(a.f_coordinates[2] == 0.0);
+        ftmesh::mesh_string::pointer_t s(f.convert_string("FtMesh ij"));
+        for(auto c : *s)
+        {
+            ftmesh::mesh::pointer_t m(c->get_mesh());
+            ftmesh::point::vector_t const & p(m->get_points());
+            ftmesh::mesh::index_vector_t const & i(m->get_indexes());
+//std::cerr << "Mesh advance = " << c->get_advance() << " (" << i.size() << " indexes)\n";
+            for(std::size_t j(0); j < i.size(); ++j)
+            {
+                std::size_t const start(i[j]);
+                std::size_t const end(j + 1 >= i.size() ? p.size() : i[j + 1]);
+                std::size_t const size(end - start);
 
-        ftmesh::point b(-33.5, +55.0);
+//std::cerr << "  " << size << " points: [" << start << ".." << end << "]\n ";
 
-        CATCH_REQUIRE(b.f_coordinates[0] == -33.5);
-        CATCH_REQUIRE(b.f_coordinates[1] == 55.0);
-        CATCH_REQUIRE(b.f_coordinates[2] == 0.0);
-
-        a = b;
-
-        CATCH_REQUIRE(a.f_coordinates[0] == -33.5);
-        CATCH_REQUIRE(a.f_coordinates[1] == 55.0);
-        CATCH_REQUIRE(a.f_coordinates[2] == 0.0);
+                for(std::size_t k(0); k < size; ++k)
+                {
+std::cerr << " (" << p[start + k].x() << ", " << p[start + k].y() << ")";
+                }
+//std::cerr << "\n";
+            }
+        }
     }
     CATCH_END_SECTION()
 }

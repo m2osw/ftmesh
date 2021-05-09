@@ -25,9 +25,14 @@
 #include "main.h"
 
 
-// cppthread lib
+// ftmesh lib
 //
 #include "ftmesh/version.h"
+
+
+// GLUT lib
+//
+#include "GL/glut.h"
 
 
 // libexcept lib
@@ -41,6 +46,7 @@
 
 int main(int argc, char * argv[])
 {
+    //glutInit(&argc, argv);      // this is probably not required
     return SNAP_CATCH2_NAMESPACE::snap_catch2_main(
               "ftmesh"
             , FTMESH_VERSION_STRING
