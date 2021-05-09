@@ -43,7 +43,7 @@
 // we assume that GLdouble is "double" and we want to make sure of that
 // (if not, we would need to offer an fttype.h file with such types)
 //
-static_assert(std::is_same<double, GLdouble>::value);
+static_assert(std::is_same<double, GLdouble>::value, "The library expects GLdouble to be a double");
 
 
 
