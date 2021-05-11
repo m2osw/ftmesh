@@ -47,7 +47,7 @@ class mesh_string
 public:
     typedef std::shared_ptr<mesh_string>  pointer_t;
 
-    void                    add_glyph(mesh::pointer_t mesh, int advance);
+    void                    add_glyph(mesh::pointer_t mesh, float advance);
 
 private:
 };

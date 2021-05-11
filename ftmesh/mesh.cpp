@@ -52,7 +52,7 @@ namespace ftmesh
 
 
 
-mesh::mesh(int advance)
+mesh::mesh(float advance)
     : f_advance(advance)
 {
 }
@@ -94,7 +94,7 @@ mesh::index_vector_t const & mesh::get_indexes() const
 //}
 
 
-int mesh::get_advance() const
+float mesh::get_advance() const
 {
     return f_advance;
 }

@@ -41,10 +41,10 @@ public:
     typedef std::shared_ptr<mesh_char>      pointer_t;
     typedef std::vector<pointer_t>          vector_t;
 
-                            mesh_char(mesh::pointer_t mesh, int advance);
+                            mesh_char(mesh::pointer_t mesh, float advance);
 
     mesh::pointer_t         get_mesh() const;
-    int                     get_advance() const;
+    float                   get_advance() const;
 
 private:
     mesh::pointer_t         f_mesh = mesh::pointer_t();

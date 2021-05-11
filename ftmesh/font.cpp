@@ -139,7 +139,7 @@ public:
     void                    set_precision(int precision);
     bool                    has_kerning_table() const;
     void                    set_size(int point_size, int x_resolution, int y_resolution);
-    int                     get_kerning(char32_t current_char, char32_t next_char);
+    float                   get_kerning(char32_t current_char, char32_t next_char);
 
 private:
     // WARNING: the callback parameters are not what is defined in the
@@ -298,7 +298,7 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
         c1->apply_parity(parity);
     }
 
-    f_current_mesh = std::make_shared<mesh>(f_face->glyph->advance.x / f_precision);
+    f_current_mesh = std::make_shared<mesh>(static_cast<float>(f_face->glyph->advance.x) / static_cast<float>(f_precision));
     f_temporary_vertex_pos = 0;
 
     GLUtesselator * tobj(gluNewTess());
@@ -420,7 +420,7 @@ void font_impl::set_size(int point_size, int x_resolution, int y_resolution)
 }
 
 
-int font_impl::get_kerning(char32_t current_char, char32_t next_char)
+float font_impl::get_kerning(char32_t current_char, char32_t next_char)
 {
     FT_Vector kern_advance = FT_Vector();
 
@@ -440,7 +440,7 @@ int font_impl::get_kerning(char32_t current_char, char32_t next_char)
         }
     }
 
-    return kern_advance.x;
+    return static_cast<float>(kern_advance.x) / static_cast<float>(f_precision);
 }
 
 
@@ -611,8 +611,9 @@ mesh_string::pointer_t font::convert_string(std::string const & message)
         if(m != nullptr)
         {
             char32_t const next_char(i + 1 < size ? s[i + 1] : U'\U00000000');
-            int const advance(f_impl->get_kerning(s[i], next_char));
-            result->add_glyph(m, m->get_advance() + advance);
+            float const advance(m->get_advance());
+            float const kerning(f_impl->get_kerning(s[i], next_char));
+            result->add_glyph(m, advance + kerning);
         }
     }
 

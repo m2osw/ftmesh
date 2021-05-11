@@ -45,7 +45,7 @@ namespace ftmesh
 {
 
 
-void mesh_string::add_glyph(mesh::pointer_t mesh, int advance)
+void mesh_string::add_glyph(mesh::pointer_t mesh, float advance)
 {
     push_back(std::make_shared<mesh_char>(mesh, advance));
 }

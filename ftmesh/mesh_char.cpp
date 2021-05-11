@@ -46,7 +46,7 @@ namespace ftmesh
 {
 
 
-mesh_char::mesh_char(mesh::pointer_t mesh, int advance)
+mesh_char::mesh_char(mesh::pointer_t mesh, float advance)
     : f_mesh(mesh)
     , f_advance(advance)
 {
@@ -59,7 +59,7 @@ mesh::pointer_t mesh_char::get_mesh() const
 }
 
 
-int mesh_char::get_advance() const
+float mesh_char::get_advance() const
 {
     return f_advance;
 }
