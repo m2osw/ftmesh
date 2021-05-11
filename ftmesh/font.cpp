@@ -605,15 +605,52 @@ mesh_string::pointer_t font::convert_string(std::string const & message)
 
     std::u32string const s(libutf8::to_u32string(message));
     std::size_t const size(s.size());
-    for(std::size_t i(0); i < size; ++i)
+    if(size > 0)
     {
-        mesh::pointer_t m(get_mesh(s[i]));
+        std::size_t const max(size - 1);
+        for(std::size_t i(0); i < max; ++i)
+        {
+            mesh::pointer_t m(get_mesh(s[i]));
+            if(m != nullptr)
+            {
+                float advance(m->get_advance());
+                advance += f_impl->get_kerning(s[i], s[i + 1]);
+                result->add_glyph(m, advance);
+            }
+        }
+        mesh::pointer_t m(get_mesh(s[max]));
         if(m != nullptr)
         {
-            char32_t const next_char(i + 1 < size ? s[i + 1] : U'\U00000000');
-            float const advance(m->get_advance());
-            float const kerning(f_impl->get_kerning(s[i], next_char));
-            result->add_glyph(m, advance + kerning);
+            result->add_glyph(m, m->get_advance());
+        }
+    }
+
+    return result;
+}
+
+
+float font::string_width(std::string const & message)
+{
+    float result(0.0f);
+
+    std::u32string const s(libutf8::to_u32string(message));
+    std::size_t const size(s.size());
+    if(size > 0)
+    {
+        std::size_t const max(size - 1);
+        for(std::size_t i(0); i < max; ++i)
+        {
+            mesh::pointer_t m(get_mesh(s[i]));
+            if(m != nullptr)
+            {
+                result += m->get_advance();
+                result += f_impl->get_kerning(s[i], s[i + 1]);
+            }
+        }
+        mesh::pointer_t m(get_mesh(s[max]));
+        if(m != nullptr)
+        {
+            result += m->get_advance();
         }
     }
 
