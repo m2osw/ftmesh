@@ -451,8 +451,7 @@ void font_impl::tess_callback_edge(GLboolean edge, font_impl * impl)
     // and GL_TRIANGLE_STRIP and reduce the amount of possible cases
     // outside of this library
     //
-    snap::NOTUSED(edge);
-    snap::NOTUSED(impl);
+    snap::NOT_USED(edge, impl);
 }
 
 
@@ -480,8 +479,7 @@ void font_impl::tess_callback_combine(
         , GLdouble ** out_data
         , font_impl * impl)
 {
-    snap::NOTUSED(vertex_data);
-    snap::NOTUSED(weight);
+    snap::NOT_USED(vertex_data, weight);
 
     point::pointer_t p(impl->callback_combine(point(vertex[0], vertex[1])));
     *out_data = p->f_coordinates;
@@ -504,7 +502,7 @@ void font_impl::tess_callback_error(GLenum error_code, font_impl * impl)
 
 void font_impl::callback_error(GLenum error_code)
 {
-    snap::NOTUSED(error_code);
+    snap::NOT_USED(error_code);
 }
 
 
