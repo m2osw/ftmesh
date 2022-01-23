@@ -1,4 +1,4 @@
-// Copyright (c) 2021  Made to Order Software Corp.  All Rights Reserved
+// Copyright (c) 2021-2022  Made to Order Software Corp.  All Rights Reserved
 //
 // https://snapwebsites.org/project/ftmesh
 // contact@m2osw.com
@@ -48,21 +48,21 @@ CATCH_TEST_CASE("point", "[point]")
     {
         ftmesh::point a;
 
-        CATCH_REQUIRE(a.f_coordinates[0] == 0.0);
-        CATCH_REQUIRE(a.f_coordinates[1] == 0.0);
-        CATCH_REQUIRE(a.f_coordinates[2] == 0.0);
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(a.f_coordinates[0], 0.0, 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(a.f_coordinates[1], 0.0, 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(a.f_coordinates[2], 0.0, 0.0));
 
         ftmesh::point b(-33.5, +55.0);
 
-        CATCH_REQUIRE(b.f_coordinates[0] == -33.5);
-        CATCH_REQUIRE(b.f_coordinates[1] == 55.0);
-        CATCH_REQUIRE(b.f_coordinates[2] == 0.0);
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[0], -33., 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[1], 55.0, 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[2], 0.0, 0.0));
 
         a = b;
 
-        CATCH_REQUIRE(a.f_coordinates[0] == -33.5);
-        CATCH_REQUIRE(a.f_coordinates[1] == 55.0);
-        CATCH_REQUIRE(a.f_coordinates[2] == 0.0);
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(a.f_coordinates[0], -33.5, 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(a.f_coordinates[1], 55.0, 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(a.f_coordinates[2], 0.0, 0.0));
     }
     CATCH_END_SECTION()
 }
