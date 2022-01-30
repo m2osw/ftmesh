@@ -54,7 +54,7 @@ CATCH_TEST_CASE("point", "[point]")
 
         ftmesh::point b(-33.5, +55.0);
 
-        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[0], -33., 0.0));
+        CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[0], -33.5, 0.0));
         CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[1], 55.0, 0.0));
         CATCH_REQUIRE(SNAP_CATCH2_NAMESPACE::nearly_equal(b.f_coordinates[2], 0.0, 0.0));
 

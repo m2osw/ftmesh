@@ -72,6 +72,7 @@ std::cerr << "\n";
             }
             int advance(c->get_advance());
 std::cerr << "advance by " << advance << " to next glyph\n";
+            CATCH_REQUIRE(advance > 0);
         }
     }
     CATCH_END_SECTION()
