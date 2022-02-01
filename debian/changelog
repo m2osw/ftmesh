@@ -1,3 +1,11 @@
+ftmesh (1.0.11.0~bionic) bionic; urgency=high
+
+  * Updated to SnapCatch2 v3.
+  * Updated for snapdev namespace.
+  * Bumped copyright to 2022.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Tue, 01 Feb 2022 08:58:41 -0800
+
 ftmesh (1.0.10.0~bionic) bionic; urgency=high
 
   * Updated to compile tests with the new libexcept library.
