@@ -1,3 +1,9 @@
+ftmesh (1.0.12.3~bionic) bionic; urgency=high
+
+  * Bumped build version to rebuild on Launchpad.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Sat, 12 Nov 2022 17:50:05 -0800
+
 ftmesh (1.0.12.2~bionic) bionic; urgency=high
 
   * Bumped version to compile against newer dependencies.
