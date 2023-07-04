@@ -1,4 +1,4 @@
-ftmesh (1.0.12.3~bionic) bionic; urgency=high
+ftmesh (1.0.12.3~jammy) jammy; urgency=high
 
   * Bumped build version to rebuild on Launchpad.
 
