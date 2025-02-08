@@ -243,7 +243,7 @@ mesh::pointer_t font_impl::get_mesh(char32_t glyph)
 
         polygons[i] = std::make_shared<polygon>(
                                   f_face->glyph->outline.points + start_index
-                                , f_face->glyph->outline.tags + start_index
+                                , reinterpret_cast<char *>(f_face->glyph->outline.tags) + start_index
                                 , end_index - start_index);
 
         start_index = end_index;
