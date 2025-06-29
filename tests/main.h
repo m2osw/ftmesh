@@ -1,4 +1,4 @@
-// Copyright (c) 2021-2022  Made to Order Software Corp.  All Rights Reserved
+// Copyright (c) 2021-2025  Made to Order Software Corp.  All Rights Reserved
 //
 // https://snapwebsites.org/project/ftmesh
 // contact@m2osw.com
@@ -19,11 +19,11 @@
 #ifndef UNIT_TEST_MAIN_H
 #define UNIT_TEST_MAIN_H
 
-// catch2 lib
+// catch2
 //
 #include <catch2/snapcatch2.hpp>
 
-// C++ lib
+// C++
 //
 #include <string>
 #include <cstring>

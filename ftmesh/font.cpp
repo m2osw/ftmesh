@@ -1,4 +1,4 @@
-// Copyright (c) 2021-2022  Made to Order Software Corp.  All Rights Reserved
+// Copyright (c) 2021-2025  Made to Order Software Corp.  All Rights Reserved
 //
 // https://snapwebsites.org/project/ftmesh
 // contact@m2osw.com
@@ -31,27 +31,27 @@
 #include    "ftmesh/polygon.h"
 
 
-// snapdev lib
+// snapdev
 //
 #include    <snapdev/not_used.h>
 
 
-// libutf8 lib
+// libutf8
 //
 #include    <libutf8/libutf8.h>
 
 
-// snaplogger lib
+// snaplogger
 //
 #include    <snaplogger/message.h>
 
 
-// OpenGL/GLUT libs
+// OpenGL/GLUT
 //
 #include    <GL/glu.h>
 
 
-// FreeType lib
+// FreeType
 //
 // ft2build.h must come first
 #include    <ft2build.h>
@@ -61,7 +61,7 @@
 #include    FT_OUTLINE_H
 
 
-// C++ lib
+// C++
 //
 #include    <iostream>
 

@@ -1,4 +1,4 @@
-// Copyright (c) 2021-2022  Made to Order Software Corp.  All Rights Reserved
+// Copyright (c) 2021-2025  Made to Order Software Corp.  All Rights Reserved
 //
 // https://snapwebsites.org/project/ftmesh
 // contact@m2osw.com
@@ -32,7 +32,7 @@
 #include    <ftmesh/polygon.h>
 
 
-// C++ lib
+// C++
 //
 #include    <algorithm>
 #include    <iostream>
