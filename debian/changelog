@@ -1,4 +1,10 @@
-ftmesh (1.0.12.4~bionic) bionic; urgency=high
+ftmesh (1.0.13.0~noble) bionic; urgency=high
+
+  * Updated glyph output pointer type.
+
+ -- Alexis Wilke <alexis@m2osw.com>  Mon, 21 Jul 2025 18:02:14 -0700
+
+ftmesh (1.0.12.4~jammy) bionic; urgency=high
 
   * Bumped build version to rebuild on Launchpad.
 
