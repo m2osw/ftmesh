@@ -1,4 +1,4 @@
-ftmesh (1.0.13.0~noble) bionic; urgency=high
+ftmesh (1.0.13.0~noble) noble; urgency=high
 
   * Updated glyph output pointer type.
 
