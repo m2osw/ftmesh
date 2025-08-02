@@ -21,6 +21,8 @@ cmake_minimum_required(VERSION 3.10.2)
 
 project(ftmesh_library)
 
+set(OpenGL_GL_PREFERENCE GLVND)
+
 find_package(SnapCMakeModules REQUIRED)
 find_package(Freetype         REQUIRED)
 find_package(GLUT             REQUIRED)

@@ -394,7 +394,7 @@ bool font_impl::has_kerning_table() const
  *
  * \param[in] point_size  The font height to use.
  * \param[in] x_resolution  The horizontal resolution, 72 by default.
- * \param[in] x_resolution  The vertical resolution, 72 by default.
+ * \param[in] y_resolution  The vertical resolution, 72 by default.
  */
 void font_impl::set_size(int point_size, int x_resolution, int y_resolution)
 {
