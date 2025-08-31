@@ -31,7 +31,6 @@ find_package(LibUtf8          REQUIRED)
 find_package(OpenGL           REQUIRED)
 find_package(SnapDev          REQUIRED)
 find_package(SnapLogger       REQUIRED)
-find_package(SnapDoxygen              )
 
 SnapGetVersion(FTMESH ${CMAKE_CURRENT_SOURCE_DIR})
 
